@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="ISO-8859-1" />
+    <title>View employees</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(
+            function() {
+                $.getJSON("http://localhost:8000/rest", function(result) {
+                    $.each(result, function(key, value) {
+                        $("#personJson").append(
+                          "<li>" +  value.firstName + " " + value.lastName + " " +  "</li>");
+                    });
+                });
+            });
+    </script>
+</head>
+
+<body>
+<ul id="personJson">
+
+</ul>
+</body>
+</html>
